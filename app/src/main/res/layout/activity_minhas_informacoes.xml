@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#031f44"
+    tools:context=".MinhasInformacoes">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#0651A9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_hamburguer"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="#00FFFEFE"
+            android:text="≡"
+            android:textSize="50dp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minhas informações"
+            android:textSize="25dp"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/notificacao"
+            android:padding="17dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#efcd6d"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="24dp"
+        android:background="#031f44"
+        app:layout_constraintTop_toBottomOf="@id/constraint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tipoUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Tipo: "
+            android:textSize="30dp"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/nome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nome: "
+            android:textSize="30dp"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/tipoUsuario"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/cpf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="CPF: "
+            android:textSize="30dp"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/nome"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/senha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Senha: "
+            android:textSize="30dp"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/cpf"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/infoExtra"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Informações adicionais"
+            android:textSize="30dp"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/senha"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/caixanovaSenha"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginHorizontal="30dp"
+            android:hint="Alterar senha"
+            android:textColorHint="#C6C6C6"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            app:hintTextColor="#C6C6C6"
+            app:layout_constraintTop_toBottomOf="@id/infoExtra"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/white">
+
+            <EditText
+                android:id="@+id/novaSenha"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:background="@drawable/caixa"
+                android:maxLength="8"
+                android:inputType="textPassword"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_mudarSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alterar Senha"
+            android:background="@drawable/botao"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/caixanovaSenha"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/voltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Voltar"
+            android:background="@drawable/botao"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/bt_mudarSenha"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

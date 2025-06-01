@@ -13,6 +13,18 @@
         android:theme="@style/Theme.ColégioExcelência"
         tools:targetApi="31">
         <activity
+            android:name=".VerNotasCadastradas"
+            android:exported="false" />
+        <activity
+            android:name=".MinhasInformacoes"
+            android:exported="false" />
+        <activity
+            android:name=".TelaPublicarNota"
+            android:exported="false" />
+        <activity
+            android:name=".TelaNotas"
+            android:exported="false" />
+        <activity
             android:name=".TelaAluno"
             android:exported="false" />
         <activity

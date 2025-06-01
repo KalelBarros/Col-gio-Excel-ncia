@@ -5,26 +5,32 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#031f44"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/logo_semfundo"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <TextView
-        android:id="@+id/TextoLogin"
+        android:id="@+id/txtFazerLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="COLÉGIO EXCELÊNCIA"
+        android:text="Fazer login"
         android:textSize="30dp"
-        android:layout_marginTop="60dp"
+        android:textColor="@color/white"
         android:fontFamily="@font/bubblegum_sans"
-        android:textColor="#1892E4"
-        android:shadowColor="#000000"
-        android:shadowDx="3"
-        android:shadowDy="3"
-        android:shadowRadius="3"
-        android:padding="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/logo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -35,11 +41,12 @@
         android:hint="CPF"
         android:textColorHint="#C6C6C6"
         android:textStyle="bold"
+        android:layout_marginTop="20dp"
         app:hintTextColor="#C6C6C6"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtFazerLogin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toTopOf="@id/caixa_senha">
 
         <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/cpf"
@@ -90,7 +97,10 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="Entrar"
-            android:layout_marginTop="20dp"
+            android:background="@drawable/botao"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/Texto"
             app:layout_constraintTop_toBottomOf="@id/caixa_senha"
             app:layout_constraintStart_toStartOf="@id/caixa_cpf"
             app:layout_constraintEnd_toEndOf="@id/caixa_cpf"
@@ -103,7 +113,6 @@
         android:layout_height="wrap_content"
         android:text="Educação acima de tudo"
         android:textSize="25dp"
-        android:layout_marginTop="60dp"
         android:fontFamily="@font/bubblegum_sans"
         android:textColor="#1892E4"
         android:shadowColor="#000000"
@@ -113,7 +122,8 @@
         android:padding="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btEntrar" />
+        app:layout_constraintTop_toBottomOf="@id/btEntrar"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

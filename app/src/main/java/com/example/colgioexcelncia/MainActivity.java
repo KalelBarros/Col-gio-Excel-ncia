@@ -18,7 +18,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.colgioexcelncia.Classes.Aluno;
 import com.example.colgioexcelncia.Classes.DB_Escola;
+import com.example.colgioexcelncia.Classes.Professor;
 import com.santalu.maskara.widget.MaskEditText;
 
 public class MainActivity extends AppCompatActivity
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        deleteDatabase("DB_Escola");
+        //deleteDatabase("DB_Escola");
 
         bt_entrar = findViewById(R.id.btEntrar);
         CPF = findViewById(R.id.cpf);
@@ -51,19 +53,22 @@ public class MainActivity extends AppCompatActivity
                 if(isCamposValidos(CPF, Senha))
                 {
 
-                    if (ValidarCPF(CPF.getUnMasked()) && ValidarSenha(Senha.getText().toString())) {
+                    if (autenticarUsuario(CPF.getUnMasked(), Senha.getText().toString())) {
                         Toast.makeText(MainActivity.this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
                         Intent intent = null;
 
-                        if (isAluno)
-                        {
-                            intent = new Intent(MainActivity.this, TelaProfessor.class);
+
+                        if (isAluno) {
+                            intent = new Intent(MainActivity.this, TelaAluno.class);
+                            startActivity(intent);
                         } else
                         {
                             intent = new Intent(MainActivity.this, TelaProfessor.class);
+                            startActivity(intent);
                         }
 
-                        intent.putExtra("nome", nome_usuario);
+
+                        intent.putExtra("cpf", nome_usuario);
 
                         startActivity(intent);
                         finish();
@@ -77,70 +82,35 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private boolean ValidarCPF(String cpf)
-    {
-        String query_professor = "SELECT * FROM " + DB_Escola.TABELA_PROFESSOR + " WHERE cpf_professor = ?";
-        String query_aluno = "SELECT * FROM " + DB_Escola.TABELA_ALUNO + " WHERE cpf_aluno = ?";
 
-        Cursor cursor_professor = db.getReadableDatabase().rawQuery(query_professor, new String[]{cpf});
-        Cursor cursor_aluno = db.getReadableDatabase().rawQuery(query_aluno, new String[]{cpf});
+    private boolean autenticarUsuario(String cpf, String senha) {
+        // Tenta autenticar como professor
+        String queryProf = "SELECT * FROM " + DB_Escola.TABELA_PROFESSOR + " WHERE cpf_professor = ? AND senha_professor = ?";
+        Cursor cursorProf = db.getReadableDatabase().rawQuery(queryProf, new String[]{cpf, senha});
 
-        if (cursor_professor.moveToFirst())
-        {
-            nome_usuario = cursor_professor.getString(cursor_professor.getColumnIndexOrThrow("nome_professor"));
-            cursor_professor.close();
-            cursor_aluno.close();
+        if (cursorProf.moveToFirst()) {
+            nome_usuario = cursorProf.getString(cursorProf.getColumnIndexOrThrow("cpf_professor"));
             isAluno = false;
+            cursorProf.close();
             return true;
-        } else if (cursor_aluno.moveToFirst())
-        {
-            nome_usuario = cursor_aluno.getString(cursor_aluno.getColumnIndexOrThrow("nome_aluno"));
-            cursor_professor.close();
-            cursor_aluno.close();
+        }
+        cursorProf.close();
+
+        // Tenta autenticar como aluno
+        String queryAluno = "SELECT * FROM " + DB_Escola.TABELA_ALUNO + " WHERE cpf_aluno = ? AND senha_aluno = ?";
+        Cursor cursorAluno = db.getReadableDatabase().rawQuery(queryAluno, new String[]{cpf, senha});
+
+        if (cursorAluno.moveToFirst()) {
+            nome_usuario = cursorAluno.getString(cursorAluno.getColumnIndexOrThrow("cpf_aluno"));
             isAluno = true;
+            cursorAluno.close();
             return true;
-        } else
-        {
-            cursor_professor.close();
-            cursor_aluno.close();
-            return false;
         }
+        cursorAluno.close();
+
+        return false;
     }
 
-    private boolean ValidarSenha(String senha)
-    {
-        if(isAluno)
-        {
-            String query_aluno = "SELECT * FROM " + DB_Escola.TABELA_ALUNO + " WHERE senha_aluno = ?";
-            Cursor cursor_aluno = db.getReadableDatabase().rawQuery(query_aluno, new String[]{senha});
-
-            if (cursor_aluno.moveToFirst())
-            {
-                cursor_aluno.close();
-                return true;
-            } else
-            {
-                cursor_aluno.close();
-                return false;
-            }
-        }
-        else
-        {
-            String query_professor = "SELECT * FROM " + DB_Escola.TABELA_PROFESSOR + " WHERE senha_professor = ?";
-            Cursor cursor_professor = db.getReadableDatabase().rawQuery(query_professor, new String[]{senha});
-
-            if (cursor_professor.moveToFirst())
-            {
-                cursor_professor.close();
-                return true;
-            }
-            else
-            {
-                cursor_professor.close();
-                return false;
-            }
-        }
-    }
 
     private boolean isCamposValidos(MaskEditText Campo_CPF, EditText Campo_Senha)
     {

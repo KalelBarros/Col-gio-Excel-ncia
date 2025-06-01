@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#031f44"
+    tools:context=".TelaNotas">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#0651A9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_hamburguer"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="#00FFFEFE"
+            android:text="≡"
+            android:textSize="50dp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minhas notas"
+            android:textSize="25dp"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/notificacao"
+            android:padding="17dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#efcd6d"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/nomeA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome aluno"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/constraint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/trimesre"
+        android:textColor="@color/white"
+        android:fontFamily="@font/bubblegum_sans"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:id="@+id/trimesre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome aluno"
+        app:layout_constraintTop_toBottomOf="@id/nomeA"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/constraintPai"
+        android:textColor="@color/white"
+        android:fontFamily="@font/bubblegum_sans"
+        android:textSize="20dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintPai"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nomeA"
+        app:layout_constraintBottom_toTopOf="@id/bt_voltar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/CL"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/container"
+            app:layout_constraintBottom_toTopOf="@id/CL_MEDIA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/CL2"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/container"
+                app:layout_constraintEnd_toStartOf="@id/CL3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disciplina"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/bubblegum_sans"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/CL3"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/container"
+                app:layout_constraintEnd_toStartOf="@id/CL4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/CL2"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AV1"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/bubblegum_sans"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/CL4"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/container"
+                app:layout_constraintEnd_toStartOf="@id/CL5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/CL3"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AV2"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/bubblegum_sans"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/CL5"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/CL4"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Média"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/bubblegum_sans"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/CLMaterias"
+            android:layout_width="100dp"
+            android:layout_height="250dp"
+            android:background="@drawable/container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/CL"
+            >
+
+            <TextView
+                android:id="@+id/materia1"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="Matemática"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/materia2"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+            <TextView
+                android:id="@+id/materia2"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="História"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/materia1"
+                app:layout_constraintBottom_toTopOf="@id/materia3"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+            <TextView
+                android:id="@+id/materia3"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="Linguagens"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/materia2"
+                app:layout_constraintBottom_toTopOf="@id/materia4"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+            <TextView
+                android:id="@+id/materia4"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="Ed.Física"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/materia3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/CL_AV1"
+            android:layout_width="50dp"
+            android:layout_height="250dp"
+            android:background="@drawable/container"
+            app:layout_constraintTop_toBottomOf="@id/CL"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/CLMaterias"
+            app:layout_constraintEnd_toStartOf="@id/CL_AV2">
+
+            <TextView
+                android:id="@+id/Av1_n1"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="- - -"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/Av1_n2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+            <TextView
+                android:id="@+id/Av1_n2"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="- - -"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/Av1_n1"
+                app:layout_constraintBottom_toTopOf="@id/Av1_n3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+            <TextView
+                android:id="@+id/Av1_n3"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="- - -"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@id/Av1_n4"
+                app:layout_constraintTop_toBottomOf="@id/Av1_n2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+            <TextView
+                android:id="@+id/Av1_n4"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="- - -"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/Av1_n3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/CL_AV2"
+            android:layout_width="50dp"
+            android:layout_height="250dp"
+            android:background="@drawable/container"
+            app:layout_constraintEnd_toStartOf="@id/CL_MEDIA"
+            app:layout_constraintTop_toBottomOf="@id/CL"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/CL_AV1">
+
+            <TextView
+                android:id="@+id/Av2_n1"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="- - -"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/Av2_n2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+            <TextView
+                android:id="@+id/Av2_n2"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="- - -"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/Av2_n1"
+                app:layout_constraintBottom_toTopOf="@id/Av2_n3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+            <TextView
+                android:id="@+id/Av2_n3"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="- - -"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@id/Av2_n4"
+                app:layout_constraintTop_toBottomOf="@id/Av2_n2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+            <TextView
+                android:id="@+id/Av2_n4"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="- - -"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/Av2_n3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/CL_MEDIA"
+            android:layout_width="100dp"
+            android:layout_height="250dp"
+            android:background="@drawable/container"
+            app:layout_constraintTop_toBottomOf="@id/CL"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/CL_AV2"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/media1"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="- - -"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/media2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+            <TextView
+                android:id="@+id/media2"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="- - -"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/media1"
+                app:layout_constraintBottom_toTopOf="@id/media3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+            <TextView
+                android:id="@+id/media3"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="- - -"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@id/media4"
+                app:layout_constraintTop_toBottomOf="@id/media2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+            <TextView
+                android:id="@+id/media4"
+                android:layout_width="match_parent"
+                android:layout_height="62.5dp"
+                android:text="- - -"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/media3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bubblegum_sans"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_voltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/botao"
+        android:text="Voltar"
+        android:textColor="@color/white"
+        android:fontFamily="@font/bubblegum_sans"
+        app:layout_constraintTop_toBottomOf="@id/constraintPai"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
